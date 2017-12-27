@@ -34,7 +34,6 @@ export default class App extends React.Component {
   }
 
   onFormSubmit(e) {
-    alert('hii~');
     e.preventDefault();
     const {
       code,
@@ -46,11 +45,13 @@ export default class App extends React.Component {
       registerDate,
       isStatusIn
     }).then((res) => {
-      alert(res);
       if (res.status === 201) {
-        navigate("success")
+        alert('Item is added!')
+        this.props.navigation.navigate("Home");
       }
-    }).catch((error) => {alert(error);})
+    }).catch((error) => {
+      alert(error);
+    })
   }
 
   render() {

@@ -24,7 +24,7 @@ export default class HomeScreen extends React.Component {
           <View style={styles.top}>
             <MenuItem style={styles.header} onPress={() => navigate("Register")} title="Add new"/>
             <MenuItem style={styles.header} onPress={() => navigate("gO")} title="Give Out"/>
-            <MenuItem style={styles.header} onPress={() => navigate("rb")} title="Receive Back"/>
+            <MenuItem style={styles.header} onPress={() => navigate("ItemList")} title="Item List"/>
           </View>
         </View>
      </ImageBackground>

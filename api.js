@@ -45,11 +45,10 @@ export const deleteItem = (itemId) => {
 }
 
 export const createItem = (itemDetails) => {
-  alert('here');
   return instance.post('/item/', itemDetails).then((res) => {
     return res;
   }).catch((error) => {
-alert(error);
+    alert("This item exists in the list.");
     return error.response;
   });
 }
