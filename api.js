@@ -16,8 +16,8 @@ export const listItems = () => {
   });
 }
 
-export const getItemById = (itemId) => {
-  return instance.get('/item/', itemId).then((res) => {
+export const getItemByCode = (code) => {
+  return instance.get('/item/', code).then((res) => {
     return res;
   }).catch((error) => {
   });
