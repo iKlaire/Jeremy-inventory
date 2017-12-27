@@ -122,3 +122,13 @@ render() {
   );
 }
 }
+const styles = StyleSheet.create({
+    formTitle: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      marginTop: 10
+    },
+    picker: {
+      backgroundColor: '#E5E5E5'
+    }
+});
