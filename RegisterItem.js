@@ -4,13 +4,13 @@ import { StackNavigator } from 'react-navigation';
 import { CheckBox, Button } from 'react-native-elements';
 import MenuItem from './MenuItem';
 import DatePicker from 'react-native-datepicker';
-import { createItem } from './api.js';
+import { createItem } from './api';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      registerDate: null,
+      registerDate: new Date(),
       code: '',
       isStatusIn: true
     };
@@ -26,16 +26,15 @@ export default class App extends React.Component {
   }
 
   returnData(code) {
-    const currentDate = new Date();
-    const registerDate = currentDate.getFullYear() + '-' + (currentDate.getMonth() + 1) + '-' + currentDate.getDate();
-    const registerTime = currentDate.getHours() + '-' + (currentDate.getMinutes() + 1) + '-' + currentDate.getSeconds();
+    const registerDate = new Date();
     this.setState({
       code: code,
       registerDate
     });
   }
 
-  onFormSubmit() {
+  onFormSubmit(e) {
+    alert('hii~');
     e.preventDefault();
     const {
       code,
@@ -47,10 +46,11 @@ export default class App extends React.Component {
       registerDate,
       isStatusIn
     }).then((res) => {
+      alert(res);
       if (res.status === 201) {
         navigate("success")
       }
-    }).catch((error) => {})
+    }).catch((error) => {alert(error);})
   }
 
   render() {
@@ -105,7 +105,7 @@ export default class App extends React.Component {
           <Button
             backgroundColor='#2095F2'
             large
-            onPress={() => navigate("success")}
+            onPress={this.onFormSubmit}
             title="Submit"
           />
         </View>

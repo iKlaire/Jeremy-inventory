@@ -45,9 +45,11 @@ export const deleteItem = (itemId) => {
 }
 
 export const createItem = (itemDetails) => {
+  alert('here');
   return instance.post('/item/', itemDetails).then((res) => {
     return res;
   }).catch((error) => {
+alert(error);
     return error.response;
   });
 }
