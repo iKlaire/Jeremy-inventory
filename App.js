@@ -1,23 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, Button } from 'react-native';
+import { StackNavigator } from 'react-navigation'; // 1.0.0-beta.11
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
-}
+import HomeScreen from './HomeScreen';
+import RegisterItem from './RegisterItem';
+import qrScanner from './qrScanner';
+import GiveOut from './GiveOut';
+import ReceiveBack from './ReceiveBack';
+import Success from './Success';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+console.disableYellowBox = true;
+
+const SimpleApp = StackNavigator({
+  Home: { screen: HomeScreen },
+  Register:{screen: RegisterItem},
+  qrScanner:{ screen: qrScanner},
+  gO:{ screen: GiveOut },
+  rb: { screen: ReceiveBack},
+  success:{ screen: Success}
+},
+{ headerMode: 'screen' });
+
+export default SimpleApp;

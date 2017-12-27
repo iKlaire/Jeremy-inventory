@@ -1,5 +1,5 @@
 import React from 'react';
-import App from './App';
+import App from './Screens/App';
 
 import renderer from 'react-test-renderer';
 
